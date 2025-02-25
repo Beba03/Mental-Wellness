@@ -69,12 +69,21 @@ if (isset($_GET['action'])) {
         include 'Forgetpassword.php';
     }
 
-    /*Log out Logic*/
     if ($_GET['action'] == 'logout') {
-        session_destroy();
-        header("Location: Landing.php");
+        // Clear session variables explicitly
+        session_unset();   // Clears all session variables
+        session_destroy(); // Destroys the session itself
+    
+        // Debugging: check session status
+        echo "Session status: " . session_status(); // This should output 1 (PHP_SESSION_NONE)
+        exit(); // Stop further code execution after session is destroyed
+    
+        // Redirect to login page after session destruction
+        header("Location: login.php");
         exit();
     }
+    
+    
 
     /* Booking Logic */
     if ($_GET['action'] == "booking") {
