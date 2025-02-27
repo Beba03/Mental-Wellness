@@ -13,7 +13,7 @@
   <title>Mood Tracker</title>
   <style>
 
-/* Container */
+
 .container {
     width: 90%;
     max-width: 600px;
