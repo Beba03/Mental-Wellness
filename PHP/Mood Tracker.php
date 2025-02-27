@@ -1,12 +1,7 @@
-
-
 <?php
     include("headerlogic.php");
     include("Header.php");
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
