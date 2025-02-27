@@ -1,22 +1,26 @@
 <?php
 header("Content-Type: application/json");
 session_start();
-include("database.php");
+include("database.php"); // Include database connection
 
-if (!isset($_SESSION["user_id"])) {
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
     echo json_encode([]);
     exit();
 }
 
-$user_id = $_SESSION["user_id"];
+$user_id = $_SESSION['user_id']; // Get user_id from session
 
-$sql = "SELECT mood, comment, date FROM moods WHERE user_id = ? ORDER BY date DESC";
-$stmt = $conn->prepare($sql);
+// Query to fetch the logged moods for the logged-in user
+$query = "SELECT mood, comment, date FROM moods WHERE user_id = ? ORDER BY date DESC";
+$stmt = $conn->prepare($query);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
-$result = $stmt->get_result();
 
+// Fetch the results
+$result = $stmt->get_result();
 $moods = [];
+
 while ($row = $result->fetch_assoc()) {
     $moods[] = $row;
 }

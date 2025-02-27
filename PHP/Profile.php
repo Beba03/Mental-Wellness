@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-
 include("headerlogic.php");
 include("Header.php");
 
@@ -80,4 +79,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['logout'])) {
 <?php
 // Include Footer
 include("../HTML/Footer.html");
-?>
+?>  
