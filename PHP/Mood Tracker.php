@@ -29,7 +29,7 @@
 }
 
 
-    /* Header (Fixed at the top) */
+    /* Header (is Fixed at the top) */
   .header {
     background-color: #87CEFA;
     color: #000000;
